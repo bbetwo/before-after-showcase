@@ -12,14 +12,14 @@ export const CompareImage = () => {
     };
     return (
         <div className="flex flex-col gap-3  max-w-3xl w-full">
-            <div className="flex gap-2.5">
+            <div className="flex flex-wrap gap-2.5">
                 {slides.map((el, indx) => (
                     <button
                         key={indx}
-                        className={`p-1.5 rounded-sm border-2 font-bold transition-all duration-300 ${
+                        className={`p-1.5 rounded-sm border-2 font-bold text-sm transition-all duration-300 ${
                             currentIndex === indx
-                                ? "border-red-600 scale-110 shadow-xl"
-                                : "border-gray-300 hover:border-red-600 hover:shadow-2xl hover:scale-125"
+                                ? "border-red-600 scale-105 shadow-xl"
+                                : "border-gray-300 hover:border-red-600 hover:shadow-2xl hover:scale-110"
                         }`}
                         onClick={() => handleImageChange(indx)}
                     >
@@ -33,7 +33,6 @@ export const CompareImage = () => {
             <ReactCompareImage
                 leftImage={slides[currentIndex].after}
                 rightImage={slides[currentIndex].before}
-                hover={true}
                 leftImageLabel="До"
                 rightImageLabel="После"
             />
