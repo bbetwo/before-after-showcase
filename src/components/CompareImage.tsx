@@ -11,7 +11,7 @@ export const CompareImage = () => {
         return;
     };
     return (
-        <div className="flex flex-col gap-3 w-3xl">
+        <div className="flex flex-col gap-3  max-w-3xl w-full">
             <div className="flex gap-2.5">
                 {slides.map((el, indx) => (
                     <button
