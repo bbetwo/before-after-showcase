@@ -4,8 +4,11 @@ import { slides } from "../data/dataSlide";
 
 export const CompareImage = () => {
     const [currentIndex, setСurrentIndex] = useState(0);
-    const handleImageChange = (ind) => {
-        setСurrentIndex(ind);
+    const handleImageChange = (ind: number) => {
+        if (typeof ind === "number") {
+            setСurrentIndex(ind);
+        }
+        return;
     };
     return (
         <div className="flex flex-col gap-3 w-3xl">
