@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ReactCompareImage from "react-compare-image";
 import { slides } from "../data/dataSlide";
 
 export const CompareImage = () => {
     const [currentIndex, setСurrentIndex] = useState(0);
-    const handleImageChange = (ind: number) => {
-        if (typeof ind === "number") {
-            setСurrentIndex(ind);
-        }
-        return;
-    };
+
+    const handleImageChange = useCallback((ind: number) => {
+        setСurrentIndex(ind);
+    }, []);
+
     return (
-        <div className="flex flex-col gap-3  max-w-3xl w-full">
+        <div className="flex flex-col gap-3  max-w-2xl w-full">
             <div className="flex flex-wrap gap-2.5">
                 {slides.map((el, indx) => (
                     <button
@@ -31,6 +30,7 @@ export const CompareImage = () => {
                 {slides[currentIndex].text}
             </div>
             <ReactCompareImage
+                skeleton={"Загрузка..."}
                 leftImage={slides[currentIndex].after}
                 rightImage={slides[currentIndex].before}
                 leftImageLabel="До"
