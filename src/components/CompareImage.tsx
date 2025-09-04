@@ -6,7 +6,10 @@ export const CompareImage = () => {
     const [currentIndex, setСurrentIndex] = useState(0);
 
     const handleImageChange = useCallback((ind: number) => {
-        setСurrentIndex(ind);
+        if (typeof ind === "number") {
+            setСurrentIndex(ind);
+        }
+        return;
     }, []);
 
     return (
